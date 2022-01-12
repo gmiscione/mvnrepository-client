@@ -22,8 +22,9 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import pl.droidsonroids.retrofit2.JspoonConverterFactory
 import retrofit2.Retrofit
+import java.time.Instant
 import java.time.ZoneId
-import java.util.Optional
+import java.util.*
 
 internal class ScrapingMvnRepositoryApi(
     private val baseUrl: HttpUrl,
@@ -94,7 +95,7 @@ internal class ScrapingMvnRepositoryApi(
             return Optional.empty()
         }
         val body = response.body() ?: return Optional.empty()
-        val localDate = body.date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        val localDate = body.date?.toInstant()?.atZone(ZoneId.systemDefault())?.toLocalDate();
         val artifact = Artifact(groupId, artifactId, version, body.license, body.homepage, localDate, body.snippets)
 
         return Optional.of(artifact)

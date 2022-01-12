@@ -34,8 +34,8 @@ data class Artifact(
     val groupId: String,
     val id: String,
     val version: String,
-    val license: String,
-    val homepage: URI,
-    val date: LocalDate,
+    val license: List<String>,
+    val homepage: URI?,
+    val date: LocalDate?,
     val snippets: List<Snippet>
 )
