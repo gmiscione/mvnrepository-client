@@ -177,5 +177,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+*artifacts.txt
 
 # End of https://www.gitignore.io/api/osx,java,maven,kotlin,intellij+iml,intellij+all
