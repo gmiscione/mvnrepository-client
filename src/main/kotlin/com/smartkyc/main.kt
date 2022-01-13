@@ -19,7 +19,7 @@ fun main(args: Array<String>) {
             val parts = artifactLine.split(",")
             val data:Pair<String, String?>? = api.getArtifact(parts[0], parts[1], parts[2]) //
                 .map { Pair( //
-                    it.license.joinToString(","), //
+                    it.license.joinToString(", "), //
                     it.homepage?.toASCIIString()) } //
                 .orElse(null)
             if (data != null) {
