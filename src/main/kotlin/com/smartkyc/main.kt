@@ -29,7 +29,9 @@ fun main(args: Array<String>) {
                         "WHERE groupid = '${parts[0].sanitize()}' AND artifactid = '${parts[1].sanitize()}' AND version = '${parts[2].sanitize()}'")
             }
 
-            Thread.sleep(2_000)
+            if (args.size >= 2) {
+                Thread.sleep(args[1].toLong())
+            }
         }
 
     } finally {
