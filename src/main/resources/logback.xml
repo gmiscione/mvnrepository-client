@@ -1,65 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <!-- Stop output INFO at start -->
-    <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+	<!-- Stop output INFO at start -->
+	<statusListener class="ch.qos.logback.core.status.NopStatusListener" />
 
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-         
-        <encoder>
-            <pattern>%-5level %d{yyyy-MM-dd HH:mm:ss.SSS} %msg [%C %M]%n%ex</pattern>
-        </encoder>
-         
-    </appender>
-<!--
-    <appender name="T"
-        class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${smartkycLogFolder:-${catalina.base}/logs}/%d{yyyy-MM, aux}/smartkyc-${smartkycLogModule:-main}.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
-            <maxHistory>3652</maxHistory>
-        </rollingPolicy>
-        <encoder>
-            <pattern>%-5level %d{yyyy-MM-dd HH:mm:ss.SSS} %msg [%C %M] [%t]%n%ex</pattern>
-        </encoder>
-    </appender>
--->
-    
-<!--
-    <logger name="com.lumina" level="${smartkycLoglevel:-INFO}">
-    </logger>
-    <logger name="lumina" level="${smartkycLoglevel:-INFO}" >
-    </logger>
-    <logger name="com.businesssemantics" level="${smartkycLoglevel:-INFO}">
-    </logger>
-    <logger name="com.smartkyc" level="${smartkycLoglevel:-INFO}">
-    </logger>
-    <logger name="smartkyc" level="${smartkycLoglevel:-INFO}">
-    </logger>
-    <logger name="com.bsi" level="${smartkycLoglevel:-INFO}">
-    </logger>
-    <logger name="bsi" level="${smartkycLoglevel:-INFO}">
-    </logger>
-    <logger name="com.businesssemantics.utils" level="DEBUG">
-    </logger>
-    
-    <root level="${smartkycLoglevelRoot:-WARN}">
-        <appender-ref ref="STDOUT" />
-    </root>
--->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 
-    <logger name="org.hibernate" level="WARN">
-    </logger>
-    <logger name="org.hibernate.SQL" level="WARN">
-    </logger>
-    <logger name="com.businesssemantics.utils.DataMapping" level="DEBUG">
-    </logger>
-    <logger name="smartkyc.exercise.local" level="DEBUG">
-    </logger>
-    <logger name="com.smartkyc.utils" level="INFO">
-    </logger>
-    <logger name="lumina.cs.pr.queue" level="TRACE">
-    </logger>
-    <root level="DEBUG">
-        <appender-ref ref="STDOUT" />
-        <appender-ref ref="T" />
-    </root>
+		<encoder>
+			<pattern>%-5level %d{yyyy-MM-dd HH:mm:ss.SSS} %msg [%C %M]%n%ex</pattern>
+		</encoder>
+
+	</appender>
+	<!--
+		<appender name="T"
+			class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<fileNamePattern>${smartkycLogFolder:-${catalina.base}/logs}/%d{yyyy-MM, aux}/smartkyc-${smartkycLogModule:-main}.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+				<maxHistory>3652</maxHistory>
+			</rollingPolicy>
+			<encoder>
+				<pattern>%-5level %d{yyyy-MM-dd HH:mm:ss.SSS} %msg [%C %M] [%t]%n%ex</pattern>
+			</encoder>
+		</appender>
+	-->
+
+	<!--
+		<logger name="com.lumina" level="${smartkycLoglevel:-INFO}">
+		</logger>
+		<logger name="lumina" level="${smartkycLoglevel:-INFO}" >
+		</logger>
+		<logger name="com.businesssemantics" level="${smartkycLoglevel:-INFO}">
+		</logger>
+		<logger name="com.smartkyc" level="${smartkycLoglevel:-INFO}">
+		</logger>
+		<logger name="smartkyc" level="${smartkycLoglevel:-INFO}">
+		</logger>
+		<logger name="com.bsi" level="${smartkycLoglevel:-INFO}">
+		</logger>
+		<logger name="bsi" level="${smartkycLoglevel:-INFO}">
+		</logger>
+		<logger name="com.businesssemantics.utils" level="DEBUG">
+		</logger>
+
+		<root level="${smartkycLoglevelRoot:-WARN}">
+			<appender-ref ref="STDOUT" />
+		</root>
+	-->
+
+	<logger name="okhttp3" level="DEBUG">
+	</logger>
+	<root level="WARN">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="T" />
+	</root>
 </configuration>

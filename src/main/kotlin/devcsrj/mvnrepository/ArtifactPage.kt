@@ -23,6 +23,9 @@ import java.util.Date
 
 internal class ArtifactPage {
 
+    @Selector("#maincontent > table > tbody > tr", converter = RawElementConverter::class)
+    lateinit var tableRows: List<Element>
+
     @Selector("#maincontent > table > tbody > tr:nth-child(1) > td > span")
     lateinit var license: List<String>
 
@@ -36,6 +39,12 @@ internal class ArtifactPage {
     @Selector("#snippets", converter = SnippetElementConverter::class)
     lateinit var snippets: List<Snippet>
 
+
+    internal class RawElementConverter : ElementConverter<List<Element>> {
+        override fun convert(node: Element?, selector: Selector): List<Element> {
+            return node?.select(selector.value) ?: emptyList()
+        }
+    }
 
     internal class SnippetElementConverter : ElementConverter<List<Snippet>> {
 
