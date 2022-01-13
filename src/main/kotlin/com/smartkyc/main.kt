@@ -26,7 +26,7 @@ fun main(args: Array<String>) {
                 fun String?.sanitize() = this?.replace("'", "\\'") ?: ""
 
                 println("UPDATE libraries SET licenses = '${data.first.sanitize()}', link = '${data.second.sanitize()}' " + //
-                        "WHERE groupid = '${parts[0].sanitize()}' AND artifactid = '${parts[1].sanitize()}' AND version = '${parts[2].sanitize()}'")
+                        "WHERE groupid = '${parts[0].sanitize()}' AND artifactid = '${parts[1].sanitize()}' AND version = '${parts[2].sanitize()}';")
             }
 
             if (args.size >= 2) {
